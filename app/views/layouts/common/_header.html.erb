@@ -1,7 +1,5 @@
 <!--Header Part-->
 
-
-
 <header>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -18,25 +16,33 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/#/themes">Themes</a></li>
-                    <li><a href="/#/posts">Posts</a></li>
-                    <li><a href="/#/categories">Category</a></li>
+                    <li><a href="/#/posts">Blog</a></li>
                     <li><a href="/#/about">About</a></li>
                     <li><a href="/#/contact">Contact</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#myModal">Login/Signup
-                        <up></up>
-                    </a></li>
+
+                    <% if user_signed_in? %>
+                        <li>  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+                        <li>  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
+                        <li> Hello <strong><%= current_user.email %></strong>.</li>
+                    <% else %>
+                        <li><a href="#" data-toggle="modal" data-target="#myModal">Login/Signup
+                            <up></up>
+                        </a>
+                        </li>
+                    <% end %>
+
                 </ul>
             </div>
         </div>
     </nav>
 </header>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" style="padding-bottom:20px;">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h3 class="modal-title" id="myModalLabel">Login or Sign-Up</h3>
             </div>
 
@@ -48,8 +54,11 @@
                 </div>
 
                 <div class="login_margin_socialmedia">
-                    <p><button class="btn-facebook"><i class="fa fa-facebook"></i> | Facebook</button> <button class="btn-twitter"><i class="fa fa-twitter"></i> | Twitter</button>
-                        <button class="btn-google-plus"><i class="fa fa-google-plus"></i> | Google +</button><br></p>
+                    <p>
+                        <button class="btn-facebook"><i class="fa fa-facebook"></i> | Facebook</button>
+                        <button class="btn-twitter"><i class="fa fa-twitter"></i> | Twitter</button>
+                        <button class="btn-google-plus"><i class="fa fa-google-plus"></i> | Google +</button>
+                        <br></p>
                 </div>
 
                 <div class="login_margin2">
@@ -73,8 +82,9 @@
                     </div>
                     <div class="col-md-4"></div>
                     <button type="button" class="btn btn-primary" id="login_toggle">Login</button>
-                    <button type="button" class="btn btn-success"id="register_toggle">Create New Account</button>
+                    <button type="button" class="btn btn-success" id="register_toggle">Create New Account</button>
                     <br>
+
                     <div class="col-md-2"></div>
                     <a href>Trouble login ?</a>
                 </form>
@@ -116,12 +126,12 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('#login_toggle1').click(function(){
+    $(document).ready(function () {
+        $('#login_toggle1').click(function () {
             $('#form_login').show();
             $('#form_register').hide();
         })
-        $('#register_toggle').click(function(){
+        $('#register_toggle').click(function () {
             $('#form_login').hide();
             $('#form_register').show();
         })
