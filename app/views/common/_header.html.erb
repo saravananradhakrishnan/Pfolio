@@ -16,7 +16,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/posts">Blog</a></li>
+                    <li><a href="/#/posts">Blog</a></li>
                     <li><a href="/#/about">About</a></li>
                     <li><a href="/#/contact">Contact</a></li>
 
@@ -66,65 +66,76 @@
 
                 </div>
 
+                <div id="form_login">
+                    <%= form_for(:user, :url => session_path(:user)) do |f| %>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="form-group col-md-8">
+                                <%= f.email_field :email, autofocus: true, :class => "form-control", :required => true, :placeholder => "Enter Email-id" %>
+                            </div>
+                        </div>
 
-                <form role="form" id="form_login">
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="form-group col-md-8">
-                            <input type="text" class="form-control" placeholder="Enter Email-id">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="form-group col-md-8">
+                                <%= f.password_field :password, autocomplete: "off", :class => "form-control", :required => true, :placeholder => "Enter Your Password" %>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="form-group col-md-8">
-                            <input type="password" class="form-control" placeholder="Enter Password">
+                        <div class="row form_margin">
+                            <div class="form-group col-md-9">
+                                <%= f.check_box :remember_me %>
+                                <%= f.label :remember_me %>
+                                <label>&nbsp;&nbsp;&nbsp;</label>
+                                <%= link_to "Forgot your password?", new_password_path(:user) %>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4"></div>
-                    <button type="button" class="btn btn-primary" id="login_toggle">Login</button>
-                    <button type="button" class="btn btn-success" id="register_toggle">Create New Account</button>
-                    <br>
+                        <div class="col-md-4"></div>
+                        <%= f.submit "Log in", :class => "btn btn-primary", :id => "login_toggle" %>
+                        <button type="button" class="btn btn-success" id="register_toggle">Create New Account</button>
 
-                    <div class="col-md-2"></div>
-                    <a href>Trouble login ?</a>
-                </form>
+                        </div>
 
-                <form role="form" style="display:none" id="form_register">
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="form-group col-md-8">
-                            <input type="text" class="form-control" placeholder="Enter Name">
-                        </div>
+                    <% end %>
                     </div>
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="form-group col-md-8">
-                            <input type="text" class="form-control" placeholder="Enter Email-id">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="form-group col-md-8">
-                            <input type="text" class="form-control" placeholder="Confirm Email-id">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="form-group col-md-8">
-                            <input type="password" class="form-control" placeholder="Enter Password">
-                        </div>
-                    </div>
-                    <div class="col-md-4"></div>
-                    <button type="button" class="btn btn-primary" id="login_toggle1">Login</button>
-                    <button type="button" class="btn btn-success" id="register_toggle">Create New Account</button>
-                </form>
 
+            <div id="form_register">
+                <%= form_for(:user, :url => registration_path(:user)) do |f| %>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="form-group col-md-8">
+                            <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Enter Email-id" %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="form-group col-md-8">
+                            <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Enter Password" %>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :placeholder => "Confirm Password" %>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <%= f.submit "Create New Account", :class => "btn btn-success" %>
+
+                        <button type="button" class="btn btn-primary" id="login_toggle1">Login</button>
+                    </div>
+                <% end %>
             </div>
-
 
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $('#login_toggle1').click(function () {

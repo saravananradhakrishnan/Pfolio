@@ -6,6 +6,10 @@
     </p>
 
     <p>
-        <%= f.submit "Comment", :class=>"btn btn-primary" %>
+        <% if current_user %>
+            <%= f.submit "Comment", :class => "btn btn-primary" %>
+        <% else %>
+        <h3><%= link_to "Submit", new_user_session_path, :class => "btn btn-primary" %></h3>
+    <% end %>
     </p>
 <% end %>

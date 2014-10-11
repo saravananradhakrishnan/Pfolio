@@ -2,13 +2,13 @@
     <p id="notice"><%= notice %></p>
 
     <div class="jumbotron">
-        <h1> <%= @post.title %></h1>
+        <h1> <%= @post.title.capitalize %></h1>
         </br>
-        <p> <%= @post.body %></p>
+        <p> <%= raw(@post.body) %></p>
 
         <p>
             <strong>Published at:</strong>
-            <%= @post.published_at %>
+            <%= time_ago_in_words(@post.published_at)%> ago
         </p>
 
         <p>
@@ -21,6 +21,9 @@
     <h2>Comments</h2>
     <%= render @post.comments %>
 
-    <%= render 'comments/form' %>
+
+        <%= render 'comments/form' %>
+
+
 </div>
 
