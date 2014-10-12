@@ -1,29 +1,36 @@
-<div class="container">
-    <p id="notice"><%= notice %></p>
+<div class="row">
+    <!-- Blog Post Content Column -->
+    <div class="col-md-7 bg-info" style="margin-left:13px;">
+        <!-- Title -->
+        <h1> <%= @post.title.upcase %></h1>
 
-    <div class="jumbotron">
-        <h1> <%= @post.title.capitalize %></h1>
-        </br>
-        <p> <%= raw(@post.body) %></p>
-
-        <p>
-            <strong>Published at:</strong>
-            <%= time_ago_in_words(@post.published_at)%> ago
+        <p class="lead">
+            by <a href="#"><%= which_user(@post.user_id).email %></a>
         </p>
-
+        <hr>
         <p>
-            <strong>Posted By:</strong>
-            <%= which_user(@post.user_id).email %>
+            <span class="glyphicon glyphicon-time"></span>
+            <%= @post.published_at %>
         </p>
+        <hr>
+        <p class="lead"><br/> <%= raw(@post.body) %></p>
+        <hr>
         <%= link_to 'Edit', edit_post_path(@post) %> |
         <%= link_to 'Back', posts_path %>
+        <div class="well">
+            <a href="#">
+                like
+                <span class="badge ">42</span>
+            </a>
+            <h4>Leave a Comment:</h4>
+            <%= render 'comments/form' %>
+        </div>
+        <hr>
+        <!-- Posted Comments -->
+        <h2>Comments</h2>
+        <%= render @post.comments %>
+
     </div>
-    <h2>Comments</h2>
-    <%= render @post.comments %>
-
-
-        <%= render 'comments/form' %>
-
-
+    <%= render 'right_pannel' %>
 </div>
 
