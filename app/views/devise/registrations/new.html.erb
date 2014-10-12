@@ -8,7 +8,10 @@
             </div>
             <div class="login_margin_socialmedia">
                 <p>
-                    <button class="btn-facebook"><i class="fa fa-facebook"></i> | Facebook</button>
+                    <%= link_to user_omniauth_authorize_path(:facebook) do %>
+                        <button class="btn-facebook">  <i class="fa fa-facebook"></i> | Facebook</button>
+                    <% end %>
+
                     <button class="btn-twitter"><i class="fa fa-twitter"></i> | Twitter</button>
                     <button class="btn-google-plus"><i class="fa fa-google-plus"></i> | Google +</button>
                     <br></p>
@@ -19,34 +22,44 @@
                 You are free to join and always will be..</p>
             </div>
 
-                <div class="row form_margin">
-                    <%= devise_error_messages! %>
-                    <div class="form-group col-md-9">
-                        <%= f.label :email %>
-                        <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Enter Your Email" %>
+            <div class="row form_margin">
+                <% if resource.errors.any? %>
+                    <div id="error_explanation" class="form-group col-md-9">
+                        <h2><%= pluralize(resource.errors.count, "Error/s prohibiting") %></h2>
+
+                        <ul>
+                            <% resource.errors.full_messages.each do |msg| %>
+                                <li><%= msg %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                <% end %>
+                <div class="form-group col-md-9">
+                    <%= f.label :email %>
+                    <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Enter Your Email", :required=>true %>
+                </div>
+            </div>
+            <div class="row form_margin">
+
+                <div class="form-group col-md-9">
+                    <%= f.label :password %>
+                    <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i>
+                    <% end %><br/>
+                    <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Enter Password", :required=>true %>
+
+                </div>
+            </div>
+            <div class="row form_margin">
+
+                <div class="form-group col-md-9">
+                    <div><%= f.label :password_confirmation %><br/>
+                        <%= f.password_field :password_confirmation, autocomplete: "off", :required=>true, :class => "form-control", :placeholder => "Confirm Password" %>
                     </div>
                 </div>
-                <div class="row form_margin">
-
-                    <div class="form-group col-md-9">
-                        <%= f.label :password %>
-                        <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i>
-                        <% end %><br/>
-                        <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Enter Password" %>
-
-                    </div>
-                </div>
-                <div class="row form_margin">
-
-                    <div class="form-group col-md-9">
-                        <div><%= f.label :password_confirmation %><br/>
-                            <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :placeholder => "Confirm Password" %>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4"></div>
-            <%= render "devise/shared/links" %>
+            </div>
+            <div class="col-md-4"></div>
             <%= f.submit "Sign up", :class => "btn btn-success" %>
+            <%= link_to "Log in", new_session_path(resource_name), :class => 'btn btn-primary' %>
         </div>
     </div>
 <% end %>

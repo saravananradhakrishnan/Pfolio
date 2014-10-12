@@ -130,7 +130,7 @@
                         <div class="form-group col-md-8">
                             <div class="input-group margin-bottom-sm">
                                 <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-                                <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Enter Email-id" %>
+                                <%= f.email_field :email, autofocus: true, :required=>true, :class => "form-control", :placeholder => "Enter Email-id" %>
                             </div>
                         </div>
                     </div>
@@ -139,7 +139,7 @@
                         <div class="form-group col-md-8">
                             <div class="input-group margin-bottom-sm">
                                 <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-                                <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Enter Password" %>
+                                <%= f.password_field :password, autocomplete: "off",:required=>true, :class => "form-control", :placeholder => "Enter Password" %>
                             </div>
                         </div>
                     </div>
@@ -149,7 +149,7 @@
                         <div class="form-group col-md-8">
                             <div class="input-group margin-bottom-sm">
                                 <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-                                <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :placeholder => "Confirm Password" %>
+                                <%= f.password_field :password_confirmation, autocomplete: "off", :required=>true, :class => "form-control", :placeholder => "Confirm Password" %>
                             </div>
                         </div>
                     </div>

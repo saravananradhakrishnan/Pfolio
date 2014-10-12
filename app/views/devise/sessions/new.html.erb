@@ -1,7 +1,6 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="container">
         <div class="border">
-            <h3 class="sign">Login Now</h3>
             <hr>
             <div class="login_margin1">
                 <p><b>Sign-in Now! for Emangu</b>,</p>
@@ -20,9 +19,20 @@
             </div>
             <div class="row form_margin">
                 <div class="form-group col-md-9">
+                    <% if resource.errors.any? %>
+                        <div id="error_explanation" class="form-group col-md-9">
+                            <h2><%= pluralize(resource.errors.count, "Error/s prohibiting") %></h2>
+
+                            <ul>
+                                <% resource.errors.full_messages.each do |msg| %>
+                                    <li><%= msg %></li>
+                                <% end %>
+                            </ul>
+                        </div>
+                    <% end %>
                     <div class="input-group margin-bottom-sm">
                         <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-                        <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Enter Email-id" %>
+                        <%= f.email_field :email, autofocus: true, :required => true, :class => "form-control", :placeholder => "Enter Email-id" %>
                     </div>
                 </div>
             </div>
@@ -30,7 +40,7 @@
                 <div class="form-group col-md-9">
                     <div class="input-group margin-bottom-sm">
                         <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-                        <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Enter Your Password" %>
+                        <%= f.password_field :password, autocomplete: "off", :required => true, :class => "form-control", :placeholder => "Enter Your Password" %>
                     </div>
                 </div>
             </div>
