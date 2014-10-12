@@ -1,29 +1,36 @@
-<h1>Listing sites</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>User</th>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @sites.each do |site| %>
-      <tr>
-        <td><%= site.name %></td>
-        <td><%= site.user_id %></td>
-        <td><%= site.category_id %></td>
-        <td><%= link_to 'Show', site %></td>
-        <td><%= link_to 'Edit', edit_site_path(site) %></td>
-        <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+<div class="container">
+    <h1>Listing Sites</h1>
 
-<%= link_to 'New Site', new_site_path %>
+    <div class="table-responsive">
+        <%= link_to 'New Site', new_site_path %>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>User</th>
+                <th>Category</th>
+
+                <th colspan="3">Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% @sites.each do |site| %>
+                <tr>
+                    <td><%= site.name %></td>
+                    <td><%= which_user(site.user_id).email %></td>
+                    <td><%= site.category_id %></td>
+                    <td><%= link_to 'Show', site %></td>
+                    <td><%= link_to 'Edit', edit_site_path(site) %></td>
+                    <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+

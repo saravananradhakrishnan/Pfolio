@@ -1,0 +1,33 @@
+<div class="container">
+    <h1>Listing posts</h1>
+
+    <div class="table-responsive">
+        <%= link_to 'New Post', new_post_path %>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Body</th>
+                <th>Posted By</th>
+                <th>Published at</th>
+                <th colspan="3">Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% @posts.each do |post| %>
+                <tr>
+                    <td><%= link_to (truncate(post.title, length:30)), post %></td>
+                    <td><%= link_to (raw(truncate(post.body, length: 50, omission: '... (more)'))), post %></td>
+                    <td><%= which_user(post.user_id).email %></td>
+                    <td><%= time_ago_in_words(post.published_at) %> ago</td>
+                    <td>
+                        <%= link_to 'Edit', edit_post_path(post), :class => "btn btn-warning btn-lg" %>
+                        <%= link_to 'Destroy', post, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-danger btn-lg" %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

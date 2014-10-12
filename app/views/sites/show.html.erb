@@ -1,3 +1,4 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -5,10 +6,10 @@
   <%= @site.name %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @site.user_id %>
-</p>
+    <p>
+        <strong>Site By:</strong>
+        <%= which_user(@site.user_id).email %>
+    </p>
 
 <p>
   <strong>Category:</strong>
@@ -17,3 +18,4 @@
 
 <%= link_to 'Edit', edit_site_path(@site) %> |
 <%= link_to 'Back', sites_path %>
+</div>

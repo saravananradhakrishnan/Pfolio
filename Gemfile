@@ -37,7 +37,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-#Authentication
+#For Authentication
 
 gem 'devise'
 gem 'omniauth'
@@ -45,4 +45,10 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
-
+# For HTML editor
+gem 'ckeditor', github: 'galetahub/ckeditor'
+gem "non-stupid-digest-assets"
+gem 'carrierwave', '~> 0.10.0'
+gem 'carrierwave-video'
+gem 'carrierwave-ffmpeg'
+gem 'mini_magick'

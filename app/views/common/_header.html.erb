@@ -103,13 +103,13 @@
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="form-group col-md-8">
-                            <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Enter Email-id" %>
+                            <%= f.email_field :email, autofocus: true, :class => "form-control", :required => true, :placeholder => "Enter Email-id" %>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="form-group col-md-8">
-                            <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Enter Password" %>
+                            <%= f.password_field :password, autocomplete: "off", :class => "form-control", :required => true, :placeholder => "Enter Password" %>
                         </div>
 
                     </div>
@@ -117,7 +117,7 @@
                         <div class="col-md-2">
                         </div>
                         <div class="form-group col-md-8">
-                            <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :placeholder => "Confirm Password" %>
+                            <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :required => true, :placeholder => "Confirm Password" %>
                         </div>
 
                     </div>
@@ -136,7 +136,6 @@
 
 
     </div>
-</div>
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
