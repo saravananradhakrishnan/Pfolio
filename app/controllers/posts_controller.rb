@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   respond_to :html, :json
 
+  #layout 'blog_default'
+
   def index
     @posts = Post.published
     respond_with(@posts)

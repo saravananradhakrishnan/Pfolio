@@ -1,37 +1,53 @@
 <!--Header Part-->
-
 <header>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="mlogo">
-                <image src="../images/logo.png" width="200px" height="50"></image>
-            </div>
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/#/posts">Blog</a></li>
-                    <li><a href="/#/about">About</a></li>
-                    <li><a href="/#/contact">Contact</a></li>
-
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/">
+                        <image src="../images/logo.png" width="200px" height="50;"></image>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="menu_item"><a href="/"><span class="fa fa-home fa-fw"></span>&nbsp; Home</a></li>
+                        <li class="menu_item"><a href="/posts"><span class="fa fa-book fa-fw"></span>&nbsp;Blog</a></li>
+                        <li class="menu_item"><a href="/"><span class="fa fa-cloud fa-fw"></span>&nbsp;Explore</a></li>
+                        <li class="menu_item"><a href="#"><span class="fa fa-trophy fa-fw"></span>&nbsp;About</a></li>
+                        <li class="menu_item"><a href="#"><span class="fa fa-phone fa-spin"></span>Contact</a></li>
+                    </ul>
                     <% if user_signed_in? %>
-                        <li>  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
-                        <li>  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
-                        <li> Hello <strong><%= current_user.email %></strong>.</li>
-                    <% else %>
-                        <li><a href="#" data-toggle="modal" data-target="#myModal">Login/Signup
-                            <up></up>
-                        </a>
-                        </li>
-                    <% end %>
 
-                </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= (current_user.email) %>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+                                    <li><a href="#"><span class="fa fa-cog"></span>Account</a></li>
+                                    <li class="divider"></li>
+                                    <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    <% else %>
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#myModal">Login/Signup&nbsp;&nbsp;<span class="fa fa-unlock-alt"></span>
+                                    <up></up>
+                                </a>
+                        </ul>
+
+                    <% end %>
+                </div>
             </div>
         </div>
     </nav>
@@ -55,7 +71,10 @@
 
                 <div class="login_margin_socialmedia">
                     <p>
-                        <button class="btn-facebook"><i class="fa fa-facebook"></i> | Facebook</button>
+                        <%= link_to user_omniauth_authorize_path(:facebook) do %>
+                            <button class="btn-facebook">  <i class="fa fa-facebook"></i> | Facebook</button>
+                        <% end %>
+
                         <button class="btn-twitter"><i class="fa fa-twitter"></i> | Twitter</button>
                         <button class="btn-google-plus"><i class="fa fa-google-plus"></i> | Google +</button>
                         <br></p>
@@ -71,14 +90,20 @@
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="form-group col-md-8">
-                                <%= f.email_field :email, autofocus: true, :class => "form-control", :required => true, :placeholder => "Enter Email-id" %>
+                                <div class="input-group margin-bottom-sm">
+                                    <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                                    <%= f.email_field :email, autofocus: true, :class => "form-control", :required => true, :placeholder => "Enter Email-id" %>
+                                </div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="form-group col-md-8">
-                                <%= f.password_field :password, autocomplete: "off", :class => "form-control", :required => true, :placeholder => "Enter Your Password" %>
+                                <div class="input-group margin-bottom-sm">
+                                    <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                                    <%= f.password_field :password, autocomplete: "off", :class => "form-control", :required => true, :placeholder => "Enter Your Password" %>
+                                </div>
                             </div>
                         </div>
                         <div class="row form_margin">
@@ -103,23 +128,38 @@
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="form-group col-md-8">
-                            <%= f.email_field :email, autofocus: true, :class => "form-control", :required => true, :placeholder => "Enter Email-id" %>
+
+
+                            <div class="input-group margin-bottom-sm">
+                                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                                <%= f.email_field :email, autofocus: true, :required=>true, :class => "form-control", :placeholder => "Enter Email-id" %>
+                            </div>
+
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="form-group col-md-8">
-                            <%= f.password_field :password, autocomplete: "off", :class => "form-control", :required => true, :placeholder => "Enter Password" %>
-                        </div>
 
+
+                   <div class="input-group margin-bottom-sm">
+                                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                                <%= f.password_field :password, autocomplete: "off",:required=>true, :class => "form-control", :placeholder => "Enter Password" %>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-2">
                         </div>
                         <div class="form-group col-md-8">
-                            <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :required => true, :placeholder => "Confirm Password" %>
-                        </div>
 
+                            <div class="input-group margin-bottom-sm">
+                                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                                <%= f.password_field :password_confirmation, autocomplete: "off", :required=>true, :class => "form-control", :placeholder => "Confirm Password" %>
+                            </div>
+
+                        </div>
                     </div>
 
 
@@ -150,9 +190,6 @@
     });
 
 </script>
-
-
-
 
 
 <!--Header Part Ends-->
