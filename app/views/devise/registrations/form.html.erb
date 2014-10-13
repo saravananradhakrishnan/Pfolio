@@ -1,0 +1,55 @@
+ <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :remote=>true) do |f| %>
+                       <div class="container">
+                           <div class="border">
+                               <h3 class="sign">Sign-Up Now</h3>
+                               <hr>
+                               <div class="login_margin1">
+                                   <p><b>Sign-Up Now! for Emangu</b></p>
+                               </div>
+                               <div class="login_margin_socialmedia">
+                                   <p>
+                                       <button class="btn-facebook"><i class="fa fa-facebook"></i> | Facebook</button>
+                                       <button class="btn-twitter"><i class="fa fa-twitter"></i> | Twitter</button>
+                                       <button class="btn-google-plus"><i class="fa fa-google-plus"></i> | Google +</button>
+                                       <br></p>
+                               </div>
+
+
+                               <div class="login_margin2">
+                                   You are free to join and always will be..</p>
+                               </div>
+
+
+                                   <div class="row form_margin">
+                                       <%= devise_error_messages! %>
+                                       <div class="form-group col-md-9">
+                                           <%= f.label :email %>
+                                           <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Enter Your Email" %>
+                                       </div>
+                                   </div>
+                                   <div class="row form_margin">
+
+                                       <div class="form-group col-md-9">
+                                           <%= f.label :password %>
+                                           <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i>
+                                           <% end %><br/>
+                                           <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Enter Password" %>
+
+                                       </div>
+                                   </div>
+                                   <div class="row form_margin">
+
+                                       <div class="form-group col-md-9">
+                                           <div><%= f.label :password_confirmation %><br/>
+                                               <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :placeholder => "Confirm Password" %>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="col-md-4"></div>
+                               <%= render "devise/shared/links" %>
+                               <%= f.submit "Sign up", :class => "btn btn-success" %>
+                           </div>
+                       </div>
+                   <% end %>
+
+                </form>

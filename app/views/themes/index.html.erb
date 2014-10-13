@@ -1,0 +1,34 @@
+
+
+<div class="container">
+    <h1>Listing Sites</h1>
+
+    <div class="table-responsive">
+        <%= link_to 'New Theme', new_theme_path %>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+
+
+                <th colspan="3">Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% @themes.each do |theme| %>
+                <tr>
+                    <td><%= theme.name %></td>
+                    <td><%= theme.description %></td>
+                    <td><%= link_to 'Show', theme %></td>
+                    <td><%= link_to 'Edit', edit_theme_path(theme) %></td>
+                    <td><%= link_to 'Destroy', theme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+

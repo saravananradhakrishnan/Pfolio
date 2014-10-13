@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
 
+  has_one  :site
+
+
   before_create :generate_unique_user
   after_create :auto_create_subdomain
 
@@ -58,5 +61,6 @@ class User < ActiveRecord::Base
     end
     return new_username
   end
+
 
 end
