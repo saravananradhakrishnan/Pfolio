@@ -1,15 +1,8 @@
 Rails.application.routes.draw do
-
-
   resources :jobs
-
   resources :themes
-
   resources :sites
-
-
-
-
+  get 'users/profile'
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :posts do
