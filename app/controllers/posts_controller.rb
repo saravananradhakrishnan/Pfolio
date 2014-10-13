@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   respond_to :html, :json
 
   def index
-
+    @post = Post.all
     respond_with(@posts)
   end
 

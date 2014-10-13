@@ -1,7 +1,10 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
+   before_action :authenticate_user!, except: [:index, :show]
 respond_to :html, :json
   def index
+
+    #@portfolios1 = Portfolio.find_by_user_id(current_user.id)
     @portfolios = Portfolio.all
     respond_with(@portfolios)
   end
