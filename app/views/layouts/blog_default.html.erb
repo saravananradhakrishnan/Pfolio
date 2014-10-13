@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Emangu</title>
+    <title>Emangu Blog</title>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= stylesheet_link_tag "style", media: "all" %>
@@ -16,7 +16,52 @@
 
 <% end %>
 <%= render file: '/common/_header.html.erb' %>
+<div class="container">
+    <div class="row">
 
+        <div class="col-md-8 bg-info">
+            <h1>
+                Blog Post
+            </h1>
+
+            <form>
+                <br/>
+
+                <div class="input-group">
+                    <span class="input-group-addon">Title </span>
+                    <input type="text" class="form-control" placeholder="Title" required>
+                </div>
+                <br/>
+
+                <div class="input-group">
+                    <span class="input-group-addon">Body</span>
+                    <textarea id="subject" class="form-control" placeholder="Body" rows="9" required></textarea>
+                </div>
+                <br/>
+                <button type="submit" class="btn btn-info pull-right">Submit</button>
+                <br/>
+                <br/>
+            </form>
+        </div>
+        </br>
+        <!-- Blog Sidebar Widgets Column -->
+        <div class="col-md-4">
+            <div class="well">
+                <h4>Recent Posts</h4>
+                <ul class="list-unstyled">
+                    <li><a href="show.html">Post Title</a>
+                    </li>
+                    <li><a href="show.html">Post Title</a>
+                    </li>
+                    <li><a href="show.html">Post Title</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="m-t-50">
     <%= yield %>
 </div>

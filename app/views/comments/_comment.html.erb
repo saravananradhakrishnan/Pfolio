@@ -1,5 +1,16 @@
-<p>
-    <strong>Comment:</strong>
-    <%= comment.body %><br>
-    <%= time_ago_in_words(comment.created_at) %>ago
-</p>
+<div class="media">
+    <a class="pull-left" href="#">
+        <% if comment.user %>
+            <%# gravatar_id = Digest::MD5.hexdigest(comment.user.emai.downcase) %>
+            <img class="img-circle" src="https://secure.gravatar.com/avatar/{}" style="width:40px;" alt="Avatar">
+        <% end %>
+    </a>
+
+    <div class="media-body">
+        <h4 class="media-heading"><%= comment.user %>
+
+            <small> <%= comment.created_at %><br></small>
+        </h4>
+        <%= comment.body %><br>
+    </div>
+</div>
