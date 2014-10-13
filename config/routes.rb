@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   #devise_for :users
-  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks',:registrations => "registrations" }
+  devise_for :users, :controllers => {omniauth_callbacks: 'omniauth_callbacks', :registrations => "registrations"}
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -69,4 +69,13 @@ Rails.application.routes.draw do
   #   end
 
   root 'home#index'
+
+  get 'page/routing_error'
+
+  match 'about' => 'page#about', :as => :about, via: [:get, :post]
+  match 'contact' => 'page#contact', :as => :contact, via: [:get, :post]
+
+  if Rails.env.production?
+    match '*a' => 'page#routing_error', :as => :routing_error, via: [:get, :post]
+  end
 end

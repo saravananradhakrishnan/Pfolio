@@ -14,10 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery
-//= require bootstrap-sprockets
+// //= require bootstrap-sprockets
 //= require ckeditor/init
 //= require_tree .
-
-
-
-//$('#admin_popup').modal('toggle');
