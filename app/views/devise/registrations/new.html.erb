@@ -9,15 +9,13 @@
             <div class="login_margin_socialmedia">
                 <p>
                     <%= link_to user_omniauth_authorize_path(:facebook) do %>
-                        <button class="btn-facebook">  <i class="fa fa-facebook"></i> | Facebook</button>
+                        <button class="btn-facebook"><i class="fa fa-facebook"></i> | Facebook</button>
                     <% end %>
 
                     <button class="btn-twitter"><i class="fa fa-twitter"></i> | Twitter</button>
                     <button class="btn-google-plus"><i class="fa fa-google-plus"></i> | Google +</button>
                     <br></p>
             </div>
-
-
             <div class="login_margin2">
                 You are free to join and always will be..</p>
             </div>
@@ -36,7 +34,7 @@
                 <% end %>
                 <div class="form-group col-md-9">
                     <%= f.label :email %>
-                    <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Enter Your Email", :required=>true %>
+                    <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Enter Your Email", :required => true %>
                 </div>
             </div>
             <div class="row form_margin">
@@ -45,7 +43,7 @@
                     <%= f.label :password %>
                     <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i>
                     <% end %><br/>
-                    <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Enter Password", :required=>true %>
+                    <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Enter Password", :required => true %>
 
                 </div>
             </div>
@@ -53,7 +51,7 @@
 
                 <div class="form-group col-md-9">
                     <div><%= f.label :password_confirmation %><br/>
-                        <%= f.password_field :password_confirmation, autocomplete: "off", :required=>true, :class => "form-control", :placeholder => "Confirm Password" %>
+                        <%= f.password_field :password_confirmation, autocomplete: "off", :required => true, :class => "form-control", :placeholder => "Confirm Password" %>
                     </div>
                 </div>
             </div>

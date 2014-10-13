@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'users/profile'
+
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :posts do

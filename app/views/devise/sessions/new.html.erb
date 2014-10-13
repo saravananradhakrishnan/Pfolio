@@ -8,7 +8,9 @@
 
             <div class="login_margin_socialmedia">
                 <p>
-                    <button class="btn-facebook"><i class="fa fa-facebook"></i> | Facebook</button>
+                    <%= link_to user_omniauth_authorize_path(:facebook) do %>
+                        <button class="btn-facebook">  <i class="fa fa-facebook"></i> | Facebook</button>
+                    <% end %>
                     <button class="btn-twitter"><i class="fa fa-twitter"></i> | Twitter</button>
                     <button class="btn-google-plus"><i class="fa fa-google-plus"></i> | Google +</button>
                     <br></p>
