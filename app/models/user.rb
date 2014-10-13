@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :comments
 
   has_many :portfolios
+  has_one  :site
 
 
   before_create :generate_unique_user
@@ -61,5 +62,6 @@ class User < ActiveRecord::Base
     end
     return new_username
   end
+
 
 end

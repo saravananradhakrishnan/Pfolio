@@ -48,6 +48,9 @@ ActiveRecord::Schema.define(version: 20141011131404) do
     t.text     "description"
     t.string   "work"
     t.integer  "user_id"
+  create_table "jobs", force: true do |t|
+    t.string   "title"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,6 +61,21 @@ ActiveRecord::Schema.define(version: 20141011131404) do
     t.integer  "user_id"
     t.datetime "published_at"
     t.boolean  "is_published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sites", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "themes", force: true do |t|
+    t.string   "name"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
