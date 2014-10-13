@@ -1,6 +1,7 @@
 class SitesController < ApplicationController
   before_action :set_site, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
+  respond_to :html, :json
   # GET /sites
   # GET /sites.json
   def index
