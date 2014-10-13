@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :themes
   resources :sites
   get 'users/profile'
+  get 'users/dash_board'
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :posts do
