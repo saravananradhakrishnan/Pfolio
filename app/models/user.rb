@@ -62,5 +62,4 @@ class User < ActiveRecord::Base
     return new_username
   end
 
->>>>>>> e2c0a56e0437c90101347be88b53bfd001725ac9
 end
