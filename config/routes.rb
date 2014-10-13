@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :sites
 
 
+
+
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :posts do
