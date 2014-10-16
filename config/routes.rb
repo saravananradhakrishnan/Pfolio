@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
 
 
+   get 'portfolios/view' => 'portfolios#view'
+
+
   resources :portfolios
   resources :jobs
   resources :themes
   resources :sites
   get 'users/profile'
   get 'users/dash_board'
+  get 'image/call' => "image#call"
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :posts do

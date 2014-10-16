@@ -1,12 +1,19 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
-   before_action :authenticate_user!, except: [:index, :show]
-respond_to :html, :json
-  def index
+   before_action :authenticate_user!
+    respond_to :html, :json
 
-    #@portfolios1 = Portfolio.find_by_user_id(current_user.id)
+  def index
+    @image = '/images/portfolio/slider/pic2.jpg'
     @portfolios = Portfolio.all
     respond_with(@portfolios)
+
+  end
+
+  def view
+
+     render :file => "portfolios/portfolio.html"
+
   end
 
   def show
@@ -25,24 +32,33 @@ respond_to :html, :json
     @portfolio = Portfolio.new(portfolio_params)
     @portfolio.save
     respond_with(@portfolio)
+     Image.save(params[:portfolio])
   end
 
   def update
+  debugger
     @portfolio.update(portfolio_params)
+      #p=Portfolio.find_by(params[:portfolio][:site_id])
+       #  p.image_id=Image.last.id
+        # p.save
     respond_with(@portfolio)
+    Image.save(params[:portfolio])
   end
 
   def destroy
+  debugger
+   Image.destroy(params)
     @portfolio.destroy
     respond_with(@portfolio)
   end
-
   private
     def set_portfolio
       @portfolio = Portfolio.find(params[:id])
     end
 
     def portfolio_params
-      params.require(:portfolio).permit(:title, :description, :work, :user_id)
+      params.require(:portfolio).permit(:title, :description, :work, :user_id, :image_id)
     end
+
+
 end

@@ -21,7 +21,13 @@
                         <li class="menu_item"><a href="/"><span class="fa fa-cloud fa-fw"></span>&nbsp;Explore</a></li>
                         <li class="menu_item"><a href="#"><span class="fa fa-trophy fa-fw"></span>&nbsp;About</a></li>
                         <li class="menu_item"><a href="#"><span class="fa fa-phone fa-spin"></span>Contact</a></li>
-                        <li class="menu_item"><a href="/portfolios"><span class="fa fa-phone fa-spin"></span>Portfolio</a></li>
+                        <li class="drop_down">
+                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/portfolios">Home</a></li>
+                                    <li><a href="/portfolios/view">Gallery</a></li>
+                            </ul>
+                        </li>
                     </ul>
                     <% if user_signed_in? %>
 

@@ -6,6 +6,7 @@
             </h1>
             <br/>
             <!-- Blog Entries Column -->
+			<% if !@posts.nil? %>
             <% @posts.each do |post| %>
                 <!-- First Blog Post -->
                 <div class="bg-info" style="padding:10px;">
@@ -31,6 +32,7 @@
                 </div>
                 <br/>
 
+            <% end %>
             <% end %>
         </div>
         </br>

@@ -1,3 +1,6 @@
+
+<div class="container_protfolio" style="background-image: url('../images/portfolio/bg1.jpg')">
+
 <%= form_for(@portfolio) do |f| %>
   <% if @portfolio.errors.any? %>
     <div id="error_explanation">
@@ -11,28 +14,44 @@
     </div>
   <% end %>
  <%= f.hidden_field :user_id, :value => current_user.id rescue nil%>
-  <div class="form-group">
-      <label for="user_name" class="col-sm-2 control-label">Title</label>
-      <div class="col-sm-10">
-      <%= f.text_field :title %>
-       </div>
-  </div>
- <div class="form-group">
-       <label for="user_name" class="col-sm-2 control-label">Description</label>
-       <div class="col-sm-10">
-    <%= f.text_field :description %>
-  </div>
-   </div>
- <div class="form-group">
-       <label for="user_name" class="col-sm-2 control-label">Work</label>
-       <div class="col-sm-10">
-    <%= f.text_field :work %>
-  </div>
-   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+ <%= f.hidden_field :site_id, :value => @portfolio.id rescue nil%>
+ <%= f.hidden_field :site_name, :value => 'portfolio' rescue nil%>
+ <% debugger %>
+          <%= image = Image.find_by_id(@portfolios.image_id).image_url rescue '../images/pic1.jpg' %>
+ <div class="animate1" class="container-fluid" style="background-image: url('<%= image %>')">
+ <br/>
+ <div style="width:350px;margin-left:30px;padding:20px;background-color: rgba(255, 255, 255, 0.7);" class="pull-left">
+ 	<h1>Emangu</h1>
+ 	<h4>Title</h4>
+ 		<div class="input-group">
+ 	  		<span class="input-group-addon">Title</span>
+ 	  		<%= f.text_field :title %>
+ 		</div>
+ 		<br/>
+ 		<div class="input-group">
+ 	  		<span class="input-group-addon">Description</span>
+ 	  		<%= f.text_area :description %>
+ 		</div>
+ 		<br/>
+ 		<div class="input-group">
+ 	  		<span class="input-group-addon">work</span>
+ 	  		 <%= f.text_field :work %>
+ 		</div>
+ 		<br/>
+ 		<div class="input-group">
+         	  		<span class="input-group-addon">Select Background Image</span>
+         	  		<%= f.file_field :upload, accept: 'image/png,image/gif,image/jpeg'%>
+
+         		</div>
+ 		<br/>
+ 		<%= f.submit %>
+
+ </div>
+
+ </div>
+
 <% end %>
+</div>
 
 
 

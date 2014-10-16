@@ -1,35 +1,29 @@
-<h1>Listing portfolios</h1>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Work</th>
-
-       <th>Actions</th>
-
-    </tr>
-  </thead>
-
-  <tbody>
-
+<div class="container_protfolio"  style=" background-image: url('../images/portfolio/bg1.jpg')">
+    <% unless @portfolios.nil? %>
         <% @portfolios.each do |portfolio| %>
          <% if portfolio.user_id == current_user.id%>
-
-      <tr>
-        <td><%= portfolio.title %></td>
-        <td><%= portfolio.description %></td>
-        <td><%= portfolio.work %></td>
+         <%= image = Image.find_by_id(portfolio.image_id).image_url rescue '../images/pic1.jpg' %>
+ <div class="animate1" style= "background-image: url('<%= image %>')" >
+<br/>
+<div style="width:600px;margin-left:30px;padding:20px;background-color: rgba(255, 255, 255, 0.7);" class="pull-
+left">
+	<h2><%= portfolio.title %></h2>
+	<h4><%= portfolio.work %></h4>
+	<p><%= portfolio.description %></p>
+	<tr>
        <td> <%= link_to 'Show', portfolio %>
         <%= link_to 'Edit', edit_portfolio_path(portfolio) %>
         <%= link_to 'Destroy', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      </div>
+      </div>
     <% end %>
      <% end %>
-  </tbody>
-</table>
+     <% end %>
 
 <br>
 
 <%= link_to 'New Portfolio', new_portfolio_path %>
+<%= link_to 'Portfolio Theme', controller: 'portfolios', action:'view', :id => 'home' %>
+</div>

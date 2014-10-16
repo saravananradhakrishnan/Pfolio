@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :comments
 
   has_many :portfolios
+  has_many :images
   has_one  :site
 
 
