@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Emangu</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/media.css" rel="stylesheet">
+<link href="css/jquery.fancybox.css" rel="stylesheet">
+<link href="css/jquery.fancybox-thumbs.css" rel="stylesheet">
+<script src="js/jquery.js"></script>
+<script src="js/jquery.fancybox.js"></script>
+<script src="js/jquery.fancybox-thumbs.js"></script>
+<style>
+.hidden {
+    display: none;
+}
+</style>
+<script>
+	$(document).ready(function(){
+	$('.fancybox-thumbs').fancybox({
+                prevEffect : 'none',
+                nextEffect : 'none',
+
+                closeBtn  : false,
+                arrows    : false,
+                nextClick : true,
+
+                helpers : {
+                    thumbs : {
+                        width  : 50,
+                        height : 50
+                    }
+                }
+            });
+	});
+</script>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand nav-link" href="#top">Emangu</a>
+        </div> <!-- /.navbar-header -->
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="../../app/views/users/templates/about.html">About</a></li>
+          </ul>
+        </div> <!-- /.navbar-collapse -->
+      </div> <!-- /.container -->
+    </nav> <!-- /.navbar -->
+
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome to Photography</h1>
+        <br>
+      </div> <!-- /.container -->
+    </div> <!-- /.jumbotron -->
+
+    <div class="spacer"></div>
+
+    <div class="container">
+      <div class="row">
+	<div class="col-md-12 col-sm-6 feature-text" style="text-align:center;">
+		  <h3>Photography</h3>
+	</div>
+       <div class="col-lg-3 col-sm-4 col-xs-6"><a class="fancybox-thumbs" data-fancybox-group="thumb1" href="img/travel/01.jpg"><img class="thumbnail img-responsive" src="img/travel/01.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a class="fancybox-thumbs" data-fancybox-group="thumb1" href="img/travel/02.jpg"><img class="thumbnail img-responsive" src="img/travel/02.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a  class="fancybox-thumbs" data-fancybox-group="thumb1"  href="img/travel/03.jpg"><img class="thumbnail img-responsive" src="img/travel/03.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a  class="fancybox-thumbs" data-fancybox-group="thumb1"  href="img/travel/04.jpg"><img class="thumbnail img-responsive" src="img/travel/04.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a  class="fancybox-thumbs" data-fancybox-group="thumb1"  href="img/travel/05.jpg"><img class="thumbnail img-responsive" src="img/travel/05.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a  class="fancybox-thumbs" data-fancybox-group="thumb1"  href="img/travel/06.jpg"><img class="thumbnail img-responsive" src="img/travel/06.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a  class="fancybox-thumbs" data-fancybox-group="thumb1"  href="img/travel/07.jpg"><img class="thumbnail img-responsive" src="img/travel/07.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a  class="fancybox-thumbs" data-fancybox-group="thumb1"  href="img/travel/08.jpg"><img class="thumbnail img-responsive" src="img/travel/08.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a  class="fancybox-thumbs" data-fancybox-group="thumb1"  href="img/travel/09.jpg"><img class="thumbnail img-responsive" src="img/travel/09.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a  class="fancybox-thumbs" data-fancybox-group="thumb1"  href="img/travel/10.jpg"><img class="thumbnail img-responsive" src="img/travel/10.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a  class="fancybox-thumbs" data-fancybox-group="thumb1"  href="img/travel/11.jpg"><img class="thumbnail img-responsive" src="img/travel/11.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a  class="fancybox-thumbs" data-fancybox-group="thumb1"  href="img/travel/12.jpg"><img class="thumbnail img-responsive" src="img/travel/12.jpg"></a></div>
+      </div> <!-- /.row -->
+
+      <div class="spacer"></div>
+
+    </div> <!-- /.container -->
+
+    <footer>
+      <div class="container clearfix">
+        <p class="pull-left">
+          Copyright &copy; Emangu 2014
+        </p>
+        
+      </div> <!-- /.container -->
+    </footer>
+
+   
+      <script src="js/bootstrap.min.js"></script>
+   
+  </body>
+</html>

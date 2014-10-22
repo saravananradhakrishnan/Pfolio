@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<%= render :file => 'templates/p2/_header' %>
+
+
+<div class="container-fluid" id="home">
+
+
+  <div class="animate1">
+<br/>
+<div style="width:600px;margin-left:30px;padding:20px;background-color: rgba(255, 255, 255, 0.7);" class="pull-
+left">
+
+	<h2><div id="home1">Welcome to Photography</div></h2>
+	<h4></h4>
+	<p>
+	<div id="home1">
+	This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company. Talk about your team and what services you provide. Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors. Make your company stand out and show your visitors who you are. Tip: Add your own image by double clicking the image and clicking Change Image.
+</div>
+</p>
+
+</div>
+</div>
+
+
+</div><!-- container div-->
+
+<div class="container-fluid" id="about" style="display: none;">
+<%= render :file => 'templates/p2/_about' %>
+</div>
+
+<div class="container-fluid" id="portfolio" style="display: none;">
+<%= render :file => 'templates/p2/_portfolio' %>
+</div>
+
+<div class="container-fluid" id="contact" style="display: none;">
+<%= render :file => 'templates/p2/_contact' %>
+</div>
+
+<%= render :file => 'templates/p2/_footer' %>
+</body>
+</html>
+<script>
+
+function call(element)
+{
+
+if(element == "home")
+{
+document.getElementById("home").style.display = "block";
+document.getElementById("about").style.display = "none";
+document.getElementById("contact").style.display = "none";
+document.getElementById("portfolio").style.display = "none";
+}
+else if(element == "about")
+{
+document.getElementById("about").style.display = "block";
+document.getElementById("home").style.display = "none";
+document.getElementById("contact").style.display = "none";
+document.getElementById("portfolio").style.display = "none";
+}
+else if(element == "portfolio")
+{
+document.getElementById("portfolio").style.display = "block";
+document.getElementById("home").style.display = "none";
+document.getElementById("about").style.display = "none";
+document.getElementById("contact").style.display = "none";
+}
+else if(element == "contact")
+{
+document.getElementById("contact").style.display = "block";
+document.getElementById("home").style.display = "none";
+document.getElementById("about").style.display = "none";
+document.getElementById("portfolio").style.display = "none";
+}
+
+}
+function divClicked() {
+    var divHtml = $(this).html();
+    var editableText = $("<textarea />");
+    editableText.val(divHtml);
+    $(this).replaceWith(editableText);
+    editableText.focus();
+    // setup the blur event for this new textarea
+    editableText.blur(editableTextBlurred);
+}
+
+function editableTextBlurred() {
+    var html = $(this).val();
+    var viewableText = $("<div>");
+    viewableText.html(html);
+    $(this).replaceWith(viewableText);
+    // setup the click event for this new div
+    viewableText.click(divClicked);
+}
+
+$(document).ready(function() {
+    $("#home1").click(divClicked);
+});
+
+</script>

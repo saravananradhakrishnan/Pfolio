@@ -1,4 +1,5 @@
 
+
 <div class="container_protfolio" style="background-image: url('../images/portfolio/bg1.jpg')">
 
 <%= form_for(@portfolio) do |f| %>
@@ -16,8 +17,8 @@
  <%= f.hidden_field :user_id, :value => current_user.id rescue nil%>
  <%= f.hidden_field :site_id, :value => @portfolio.id rescue nil%>
  <%= f.hidden_field :site_name, :value => 'portfolio' rescue nil%>
- <% debugger %>
-          <%= image = Image.find_by_id(@portfolios.image_id).image_url rescue '../images/pic1.jpg' %>
+
+          <%= image = Image.find_by_id(@portfolio.image_id).image_url rescue '../images/pic1.jpg' %>
  <div class="animate1" class="container-fluid" style="background-image: url('<%= image %>')">
  <br/>
  <div style="width:350px;margin-left:30px;padding:20px;background-color: rgba(255, 255, 255, 0.7);" class="pull-left">
@@ -40,23 +41,17 @@
  		<br/>
  		<div class="input-group">
          	  		<span class="input-group-addon">Select Background Image</span>
-         	  		<%= f.file_field :upload, accept: 'image/png,image/gif,image/jpeg'%>
+         	  		<%= f.file_field :upload, :class => "btn btn-default", :required => true , accept: 'image/png,image/gif,image/jpeg'%>
 
          		</div>
  		<br/>
- 		<%= f.submit %>
-
+ 		<%= f.submit "Create", :class => "btn btn-primary", :style => "width:150px" %>
+        <%= link_to 'Back', portfolios_path, :class => "btn btn-info", :style => "width:150px" %>
  </div>
 
  </div>
 
 <% end %>
 </div>
-
-
-
-
-
-
 
 

@@ -12,7 +12,7 @@ class PortfoliosController < ApplicationController
 
   def view
 
-     render :file => "portfolios/portfolio.html"
+     render :file => "templates/p2/index"
 
   end
 
@@ -38,9 +38,6 @@ class PortfoliosController < ApplicationController
   def update
   debugger
     @portfolio.update(portfolio_params)
-      #p=Portfolio.find_by(params[:portfolio][:site_id])
-       #  p.image_id=Image.last.id
-        # p.save
     respond_with(@portfolio)
     Image.save(params[:portfolio])
   end

@@ -1,29 +1,35 @@
 
-<div class="container_protfolio"  style=" background-image: url('../images/portfolio/bg1.jpg')">
+<br/>
+<%= link_to 'Create New Portfolio', new_portfolio_path,  :class => "btn btn-success", :style => "width:150px;margin-left: 20px" %>
+<div class="container-fluid" style="margin-left: 20px" >
     <% unless @portfolios.nil? %>
         <% @portfolios.each do |portfolio| %>
          <% if portfolio.user_id == current_user.id%>
-         <%= image = Image.find_by_id(portfolio.image_id).image_url rescue '../images/pic1.jpg' %>
- <div class="animate1" style= "background-image: url('<%= image %>')" >
-<br/>
-<div style="width:600px;margin-left:30px;padding:20px;background-color: rgba(255, 255, 255, 0.7);" class="pull-
-left">
-	<h2><%= portfolio.title %></h2>
-	<h4><%= portfolio.work %></h4>
-	<p><%= portfolio.description %></p>
-	<tr>
-       <td> <%= link_to 'Show', portfolio %>
-        <%= link_to 'Edit', edit_portfolio_path(portfolio) %>
-        <%= link_to 'Destroy', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+         <br/>
+<div class="row" style="border-top: 1px solid #D0D0D0; width:900px;">
+<div class="col-md-4">
+   <div class="media">
+                       <a class="pull-left" href="#">
+                          <%= image_tag("sample_icon.png")%>
+                       </a>
+                       </div>
+
+                       </div>
+                       <div class="media-body">
+
+<div  class="col-md-8" style="margin-top: 30px">
+<div class="h3"><%= portfolio.title %></div>
+     <%= link_to 'Show', portfolio, :class => "btn btn-primary", :style => "width:150px" %>
+        <%= link_to 'Destroy',  portfolio, :class => "btn btn-danger", :style => "width:150px", method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
       </div>
+
+      </div>
+
     <% end %>
      <% end %>
      <% end %>
 
-<br>
-
-<%= link_to 'New Portfolio', new_portfolio_path %>
-<%= link_to 'Portfolio Theme', controller: 'portfolios', action:'view', :id => 'home' %>
+<br/>
 </div>
+

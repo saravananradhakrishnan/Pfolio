@@ -1,24 +1,24 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @portfolio.title %>
-</p>
+<div class="container_protfolio"  style=" background-image: url('../images/portfolio/bg1.jpg')">
+    <% unless @portfolio.nil? %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @portfolio.description %>
-</p>
+         <% if @portfolio.user_id == current_user.id%>
+         <%= image = Image.find_by_id(@portfolio.image_id).image_url rescue '../images/pic1.jpg' %>
+ <div class="animate1" style= "background-image: url('<%= image %>')" >
+<br/>
+<div style="width:600px;margin-left:30px;padding:20px;background-color: rgba(255, 255, 255, 0.7);" class="pull-
+left">
+	<h2><%= @portfolio.title %></h2>
+	<h4><%= @portfolio.work %></h4>
+	<p><%= @portfolio.description %></p>
 
-<p>
-  <strong>Work:</strong>
-  <%= @portfolio.work %>
-</p>
+      </div>
+      </div>
+    <% end %>
 
-<p>
-  <strong>User:</strong>
-  <%= @portfolio.user_id %>
-</p>
+     <% end %>
 
-<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
-<%= link_to 'Back', portfolios_path %>
+<br>
+
+<%= link_to 'Edit', edit_portfolio_path(@portfolio), :class => "btn btn-primary", :style => "width:150px" %>
+<%= link_to 'Back', portfolios_path,:class => "btn btn-info", :style => "width:150px" %>

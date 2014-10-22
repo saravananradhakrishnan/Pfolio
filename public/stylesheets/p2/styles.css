@@ -1,0 +1,136 @@
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td{
+	border-top:none;
+	font-size: .8em;
+}
+html body{
+	background-image: url('../img/bg1.jpg');
+}
+.navbar-toggle {
+	background-color: white;
+}
+.navbar-toggle .icon-bar {
+	background-color: black;
+}
+.navbar-nav > li > a {
+	color: white;
+	font-weight: bold;
+}
+.navbar-nav > li > a:hover {
+	color: black;
+}
+.navbar-nav > .active > a {
+  background-image: -webkit-linear-gradient(top, #ebebeb 0%, #f3f3f3 100%);
+  background-image:      -o-linear-gradient(top, #ebebeb 0%, #f3f3f3 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ebebeb), to(#f3f3f3));
+  background-image:         linear-gradient(to bottom, #ebebeb 0%, #f3f3f3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffebebeb', endColorstr='#fff3f3f3', GradientType=0);
+  background-repeat: repeat-x;
+  -webkit-box-shadow: inset 0 3px 9px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 3px 9px rgba(0, 0, 0, .075);
+  color:black;
+}
+.navbar-brand {
+	color:white;
+}
+#animate{
+	background-color: rgba(255, 255, 255, 0.7);
+	width:1050px;
+	min-height:550px;
+	margin:0 auto;margin-top:100px;
+	position: relative;
+    -webkit-animation: myfirst 2s ; /* Chrome, Safari, Opera */
+    -webkit-animation-direction: alternate; /* Chrome, Safari, Opera */
+    animation: myfirst 5s;
+    animation-direction: alternate;
+}
+.animate1{
+    background-image: url('../img/slider/pic2.jpg');
+    border:10px solid rgba(255, 255, 255, 0.7);
+    width:1050px;
+    min-height:550px;
+    margin:0 auto;margin-top:100px;
+    position: relative;
+    -webkit-animation: myfirst 2s ; /* Chrome, Safari, Opera */
+    -webkit-animation-direction: alternate; /* Chrome, Safari, Opera */
+    animation: myfirst 5s;
+    animation-direction: alternate;
+}
+@-webkit-keyframes myfirst {
+    0%   {top: 0px;}  
+    50%  {top: -800px;}
+    100% {top: 0px;}
+}
+
+@keyframes myfirst {
+    0%   {left: 0px; top: 0px;}
+    25%  {left: 200px; top: 0px;}
+    50%  {left: 200px; top: 200px;}
+    75%  {left: 0px; top: 200px;}
+    100% {left: 0px; top: 0px;}
+}
+/* jssor slider arrow navigator skin 05 css */
+            /*
+            .jssora05l              (normal)
+            .jssora05r              (normal)
+            .jssora05l:hover        (normal mouseover)
+            .jssora05r:hover        (normal mouseover)
+            .jssora05ldn            (mousedown)
+            .jssora05rdn            (mousedown)
+            */
+            .jssora05l, .jssora05r, .jssora05ldn, .jssora05rdn
+            {
+                position: absolute;
+                cursor: pointer;
+                display: block;
+                background: url(../img/a17.png) no-repeat;
+                overflow:hidden;
+            }
+            .jssora05l { background-position: -10px -40px; }
+            .jssora05r { background-position: -70px -40px; }
+            .jssora05l:hover { background-position: -130px -40px; }
+            .jssora05r:hover { background-position: -190px -40px; }
+            .jssora05ldn { background-position: -250px -40px; }
+            .jssora05rdn { background-position: -310px -40px; }
+/* jssor slider thumbnail navigator skin 02 css */
+                /*
+                .jssort02 .p            (normal)
+                .jssort02 .p:hover      (normal mouseover)
+                .jssort02 .pav          (active)
+                .jssort02 .pav:hover    (active mouseover)
+                .jssort02 .pdn          (mousedown)
+                */
+                .jssort02 .w
+                {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                }
+                .jssort02 .c
+                {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 99px;
+                    height: 66px;
+                    border: #000 2px solid;
+                }
+                .jssort02 .p:hover .c, .jssort02 .pav:hover .c, .jssort02 .pav .c 
+                {
+                    background: url(../img/t01.png) center center;
+                    border-width: 0px;
+                    top: 2px;
+                    left: 2px;
+                    width: 95px;
+                    height: 62px;
+                }
+                .jssort02 .p:hover .c, .jssort02 .pav:hover .c
+                {
+                    top: 0px;
+                    left: 0px;
+                    width: 97px;
+                    height: 64px;
+                    border: #fff 1px solid;
+                }
+
